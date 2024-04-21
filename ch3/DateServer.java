@@ -8,8 +8,8 @@
  * Copyright John Wiley & Sons - 2018.
  */
  
-import java.net.*;
 import java.io.*;
+import java.net.*;
 
 public class DateServer
 {
@@ -19,12 +19,15 @@ public class DateServer
 
 			// now listen for connections
 			while (true) {
+				System.out.println("Listening...");
 				Socket client = sock.accept();
 				// we have a connection
+				System.out.println("New client connected!");
 				
 				PrintWriter pout = new PrintWriter(client.getOutputStream(), true);
 				// write the Date to the socket
 				pout.println(new java.util.Date().toString());
+				pout.println("Hello new client, how can I help you?");
 
 				// close the socket and resume listening for more connections
 				client.close();
